@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hangman</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+   
+
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="header">JOJO'S BIZZARE HANGMAN</header>
+        <div class="content">
+            <section class="game">
+                <h1>Guess letters to play!</h1>
+                <h3>Wins: <span id="win-text"></span></h3>
+                <h3>Losses: <span id="loss-text"></span></h3>
+                <h3>What is the Stand Name?</h3>
+                <h3># of guesses remaining: <span id="numGuess-text"></span></h3>
+                <h3>Letters guessed already:</h3>
+                <h3 id="guessedLetters-text"></h3>
+            </section>
+            <section class="screen">
+                <img id="display" src="assets/images/start-screen-jojo.png">
+            </section>
+        </div>
+    </div>
+
+  
+    <script src="assets/javascript/game.js"></script>
+
+</body>
+
+</html>
