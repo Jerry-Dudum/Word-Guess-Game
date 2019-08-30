@@ -54,12 +54,13 @@ document.onkeyup = function (event) {
     if (correctLetters.indexOf("-") < 0) {
         wins++;
         winText.textContent = wins;
+        document.getElementById("display").src = ("assets/images/" + chosenWord + ".png");
     }
 
     if (guessesLeft < 1){
         losses++;
         lossText.textContent = losses;
-        
+        document.getElementById("display").src = "assets/images/loser.png";
     }
 
 }
