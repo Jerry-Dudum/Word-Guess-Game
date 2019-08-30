@@ -50,9 +50,15 @@ document.onkeyup = function (event) {
             guessLeftText.textContent = guessesLeft;
         }
     }
+
     if (correctLetters.indexOf("-") < 0) {
         wins++;
         winText.textContent = wins;
+    }
+
+    if (guessesLeft < 1){
+        losses++;
+        lossText.textContent = losses;
     }
 
 }
