@@ -27,7 +27,7 @@ for (var i = 0; i < chosenWord.length; i++) {
     correctText.textContent = correctLetters.join("");
 }
 console.log(chosenWord);
-console.log(correctLetters);
+console.log(correctLetters.join(""));
 
 document.onkeyup = function (event) {
 
@@ -49,9 +49,10 @@ document.onkeyup = function (event) {
             guessesLeft--;
             guessLeftText.textContent = guessesLeft;
         }
-        
-
-
+    }
+    if (correctLetters.indexOf("-") < 0) {
+        wins++;
+        winText.textContent = wins;
     }
 
 }
