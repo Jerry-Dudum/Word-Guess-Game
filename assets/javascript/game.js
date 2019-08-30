@@ -48,7 +48,7 @@ document.onkeyup = function (event) {
 
     var playerGuess = event.key;
     
-    if (guessedLetters.indexOf(playerGuess) < 0 && validGuess.indexOf(playerGuess) >= 0 && guessesLeft > 0)) {
+    if (guessedLetters.indexOf(playerGuess) < 0 && validGuess.indexOf(playerGuess) >= 0 && guessesLeft > 0) {
         guessedLetters += playerGuess;
         guessedLetterText.textContent = guessedLetters;
 
@@ -61,7 +61,7 @@ document.onkeyup = function (event) {
 
     }
 
-   if (chosenWord.indexOf(playerGuess) < 0) {
+    if (chosenWord.indexOf(playerGuess) < 0 && validGuess.indexOf(playerGuess) >= 0) {
        guessesLeft--;
        guessLeftText.textContent = guessesLeft;
    }
@@ -82,4 +82,4 @@ document.onkeyup = function (event) {
 
 }
 
-console.log(chosenWord);
+
