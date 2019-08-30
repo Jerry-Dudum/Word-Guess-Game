@@ -59,6 +59,7 @@ document.onkeyup = function (event) {
     if (guessesLeft < 1){
         losses++;
         lossText.textContent = losses;
+        
     }
 
 }
