@@ -16,17 +16,26 @@ var correctText = document.getElementById("correct-text");
 var guessLeftText = document.getElementById("numGuess-text");
 var guessedLetterText = document.getElementById("guessedLetters-text");
 
-var chosenWord = words[Math.floor(Math.random() * words.length)];
-
 winText.textContent = wins;
 lossText.textContent = losses;
 guessLeftText.textContent = guessesLeft;
 
+var chosenWord = words[Math.floor(Math.random() * words.length)];
 
 for (var i = 0; i < chosenWord.length; i++) {
     correctLetters += "-";
+    correctText.textContent = correctLetters;
 }
-
-
 console.log(chosenWord);
 console.log(correctLetters);
+
+document.onkeyup = function (event) {
+
+    var playerGuess = event.key;
+    console.log(playerGuess);
+
+    if (guessedLetters.indexOf(playerGuess) < 0 && validGuess.indexOf(playerGuess >= 0))
+        guessedLetters += playerGuess;
+        guessedLetterText.textContent = guessedLetters;
+    
+}
