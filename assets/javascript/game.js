@@ -45,11 +45,12 @@ document.onkeyup = function (event) {
             }
         }
 
-        if (playerGuess !== chosenWord[i]){
-            guessesLeft--;
-            guessLeftText.textContent = guessesLeft;
-        }
     }
+
+   if (chosenWord.indexOf(playerGuess) < 0) {
+       guessesLeft--;
+       guessLeftText.textContent = guessesLeft;
+   }
 
     if (correctLetters.indexOf("-") < 0) {
         wins++;
@@ -57,7 +58,7 @@ document.onkeyup = function (event) {
         document.getElementById("display").src = ("assets/images/" + chosenWord + ".png");
     }
 
-    if (guessesLeft < 1){
+    if (guessesLeft < 1) {
         losses++;
         lossText.textContent = losses;
         document.getElementById("display").src = "assets/images/loser.png";
