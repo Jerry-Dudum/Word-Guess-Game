@@ -4,11 +4,11 @@ var guessesLeft = 10;
 
 var validGuess = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
 
-var words = ["star platinum", "za warudo", "crazy diamond", "hermit purple", "siver chariot", "golden experience", "sex pistols", "killer queen", "sticky fingers", "king crimson"];
+var words = ["star platinum", "za warudo", "crazy diamond", "hermit purple", "silver chariot", "golden experience", "sex pistols", "killer queen", "sticky fingers", "king crimson"];
 
-var guessedLetters = "";
+var guessedLetters = [];
 
-var correctLetters = "";
+var correctLetters = [];
 
 var winText = document.getElementById("win-text");
 var lossText = document.getElementById("loss-text");
@@ -23,8 +23,8 @@ guessLeftText.textContent = guessesLeft;
 var chosenWord = words[Math.floor(Math.random() * words.length)];
 
 for (var i = 0; i < chosenWord.length; i++) {
-    correctLetters += "-";
-    correctText.textContent = correctLetters;
+    correctLetters.push("-");
+    correctText.textContent = correctLetters.join("");
 }
 console.log(chosenWord);
 console.log(correctLetters);
@@ -34,8 +34,25 @@ document.onkeyup = function (event) {
     var playerGuess = event.key;
     console.log(playerGuess);
 
-    if (guessedLetters.indexOf(playerGuess) < 0 && validGuess.indexOf(playerGuess >= 0))
+    if (guessedLetters.indexOf(playerGuess) < 0 && validGuess.indexOf(playerGuess >= 0 && guessesLeft > 0)) {
         guessedLetters += playerGuess;
         guessedLetterText.textContent = guessedLetters;
-    
+
+        for (var i = 0; i < chosenWord.length; i++) {
+            if (playerGuess === chosenWord[i]) {
+                correctLetters[i] = playerGuess;
+                correctText.textContent = correctLetters.join("");
+            }
+        }
+
+        if (playerGuess !== chosenWord[i]){
+            guessesLeft--;
+            guessLeftText.textContent = guessesLeft;
+        }
+        
+
+
+    }
+
 }
+console.log(guessesLeft);
