@@ -26,14 +26,28 @@ for (var i = 0; i < chosenWord.length; i++) {
     correctLetters.push("-");
     correctText.textContent = correctLetters.join("");
 }
-console.log(chosenWord);
-console.log(correctLetters.join(""));
+
+function resetGame() {
+    guessedLetters = [];
+    correctLetters = [];
+    guessesLeft = 10;
+    guessLeftText.textContent = guessesLeft;
+    guessedLetterText.textContent = guessedLetters;
+    correctText.textContent = correctLetters;
+
+    chosenWord = words[Math.floor(Math.random() * words.length)];
+
+    for (var i = 0; i < chosenWord.length; i++) {
+        correctLetters.push("-");
+        correctText.textContent = correctLetters.join("");
+    }
+
+}
 
 document.onkeyup = function (event) {
 
     var playerGuess = event.key;
-    console.log(playerGuess);
-
+    
     if (guessedLetters.indexOf(playerGuess) < 0 && validGuess.indexOf(playerGuess >= 0 && guessesLeft > 0)) {
         guessedLetters += playerGuess;
         guessedLetterText.textContent = guessedLetters;
@@ -56,13 +70,16 @@ document.onkeyup = function (event) {
         wins++;
         winText.textContent = wins;
         document.getElementById("display").src = ("assets/images/" + chosenWord + ".png");
+        resetGame();
     }
 
     if (guessesLeft < 1) {
         losses++;
         lossText.textContent = losses;
         document.getElementById("display").src = "assets/images/loser.png";
+        resetGame();
     }
 
 }
-console.log(guessesLeft);
+
+console.log(chosenWord);
